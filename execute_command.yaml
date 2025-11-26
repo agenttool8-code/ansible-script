@@ -1,0 +1,10 @@
+- name: check the connection 
+  hosts: all
+  # become_user: "{{ sap_sid | lower }}adm"
+  become_method: sudo
+  become: yes
+  gather_facts: true
+  tasks:
+    - name: Check connection between AWX and Target server for linux servers
+      shell: "{{ command_to_execute }}"
+      register: connection_test
